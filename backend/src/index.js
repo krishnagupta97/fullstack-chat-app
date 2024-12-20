@@ -15,7 +15,7 @@ const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
 const corsOptions = {
-    origin: process.env.FRONTEND_URL,
+    origin: [process.env.FRONTEND_URL],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
 }
