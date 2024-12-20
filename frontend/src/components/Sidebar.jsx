@@ -18,7 +18,8 @@ const Sidebar = () => {
 
   if (isUsersLoading) return <SidebarSkeleton />
 
-  const filteredUsers = showOnlineOnly ? users.filter(user => onlineUsers.includes(user._id)) : users;
+  const filteredUsers = Array.isArray(users) ? (showOnlineOnly ? users.filter(user => onlineUsers.includes(user._id)) : users) : [];
+
 
   return (
     <aside className="h-full w-22 lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200">
