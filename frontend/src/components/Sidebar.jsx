@@ -13,13 +13,16 @@ const Sidebar = () => {
   const { onlineUsers } = useAuthStore();
 
   useEffect(() => {
+    console.log("sidebar useEffect",users);
     getUsers();
+    console.log("sidebar useEffect",users);
   }, [getUsers])
 
   if (isUsersLoading) return <SidebarSkeleton />
 
   const filteredUsers = Array.isArray(users) ? (showOnlineOnly ? users.filter(user => onlineUsers.includes(user._id)) : users) : [];
-
+  console.log("sidebar filter",filteredUsers);
+  
 
   return (
     <aside className="h-full w-22 lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200">
